@@ -11,14 +11,14 @@ class Movie{
         const { id, movieName, releaseDate, movieDetail, movieImage, stars, director, genres, runtime } = this.data
        document.getElementById("movie-container").innerHTML += `
        <div class="movie-card">
-       <img src=${movieImage} alt=${movieName}/>
-       <p class="title">Movie: ${movieName}</p>
-       <p class="title">${genres}</p>
-       <p class="title">${stars}</p>
-       <p class="title">${runtime}</p>
-       <p class="title">${director}</p>
-       <p class="title">${releaseDate}</p>
-       <p class="title">${movieDetail}</p>
+       <img src=${movieImage} alt=${id}/>
+       <p class="title">Movie: Movie: ${movieName}</p>
+       <p class="title">Genre: ${genres}</p>
+       <p class="title"> Movie Stars: ${stars}</p>
+       <p class="title">Duration: ${runtime}</p>
+       <p class="title">Director: ${director}</p>
+       <p class="title">Year: ${releaseDate}</p>
+       <p class="title">Detail: ${movieDetail}</p>
        </div>`
     }
 

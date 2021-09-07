@@ -4,7 +4,8 @@ class ApiService {
        this.api = api
     }
 
+    getTheaters = () => fetch(this.api + "/theaters").then(resp => resp.json());
     getMovies = () => fetch(this.api + "/movies").then(resp => resp.json())
-    getTheaters = () => fetch(this.api + "/theaters").then(resp => resp.json())
+    
 
  }
