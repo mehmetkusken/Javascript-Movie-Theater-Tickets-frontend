@@ -5,7 +5,16 @@ class ApiService {
     }
 
     getTheaters = () => fetch(this.api + "/theaters").then(resp => resp.json())
-    getMovies = () => fetch(this.api + "/movies").then(resp => resp.json())
-    
+
+    findOrCreateUsername = (username) => {
+       return fetch(this.api + '/users',{
+          method: 'POST' , 
+          headers: {
+          'Content-Type': 'application/json',
+       },
+       body: JSON.stringify({username: username}),
+       })
+       .then(response => response.json())
+    }
 
  }

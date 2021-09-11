@@ -63,6 +63,7 @@ class Theater{
     static getTheaters = () => {
         
         api.getTheaters().then(theaters => {
+            Theater.all = []
         theaters.forEach(theater => new Theater(theater))
         this.renderTheaterIndex()
         
