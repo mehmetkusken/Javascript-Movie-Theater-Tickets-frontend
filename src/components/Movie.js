@@ -9,10 +9,10 @@ class Movie{
 
     renderCard = () => {
         const { id, movieName, releaseDate, movieDetail, movieImage, stars, director, genres, runtime } = this.data
-       document.getElementById("movie-container").innerHTML += `
+       document.querySelector(".contain").innerHTML += `
        <div class="movie-card">
        <img src=${movieImage} alt=${id}/>
-       <p class="title">Movie: Movie: ${movieName}</p>
+       <p class="title">Movie: ${movieName}</p>
        <p class="title">Genre: ${genres}</p>
        <p class="title"> Movie Stars: ${stars}</p>
        <p class="title">Duration: ${runtime}</p>
@@ -23,19 +23,7 @@ class Movie{
     }
 
     
-    static renderIndex(){
-        const movieContainer = document.createElement("div")
-        movieContainer.id = "movie-container"
-        document.getElementById("movie").appendChild(movieContainer)
-        this.all.forEach(movie => movie.renderCard())
-    }
     
-    static getMovies(){
-        api.getMovies().then(movies => {
-        movies.forEach(movie => new Movie(movie))
-        this.renderIndex()
-        })
-    }
 }
 
 

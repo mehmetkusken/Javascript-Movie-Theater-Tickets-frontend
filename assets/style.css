@@ -63,14 +63,14 @@ body {
     background-color: #fff;
 }
 
-#info {
+.info {
     background-color: rgba(0, 0,0, 2);
     padding: 5px 50px;
     color: #777;
     display: flex;
 }
 
-#info li {
+.info li {
     display: flex;
     align-items: center;
     justify-content: center;
