@@ -7,14 +7,29 @@ class ApiService {
     getTheaters = () => fetch(this.api + "/theaters").then(resp => resp.json())
 
     findOrCreateUsername = (username) => {
-       return fetch(this.api + '/users',{
-          method: 'POST' , 
-          headers: {
+      return fetch(this.api + '/users',{
+         method: 'POST' , 
+         headers: {
+         'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({username: username}),
+      })
+      .then(response => response.json())
+   }
+
+    createTheater = (openNewTheater) => {
+      openNewTheater.user_id = user.id
+       return fetch(this.api + "/theaters", {
+       method: 'POST',
+       headers: {
           'Content-Type': 'application/json',
        },
-       body: JSON.stringify({username: username}),
-       })
-       .then(response => response.json())
-    }
+       body: JSON.stringify(openNewTheater),
+    })
+    .then(response => response.json())
+   }
+
+
+    
 
  }
