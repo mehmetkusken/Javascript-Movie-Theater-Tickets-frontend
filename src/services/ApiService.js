@@ -5,7 +5,7 @@ class ApiService {
     }
 
     getTheaters = () => fetch(this.api + "/theaters").then(resp => resp.json())
-
+    getTheaterSeats = (theaterId) => fetch(this.api + "/theaters/" + theaterId + "/seats").then(resp => resp.json());
     findOrCreateUsername = (username) => {
       return fetch(this.api + '/users',{
          method: 'POST' , 
@@ -30,13 +30,12 @@ class ApiService {
    }
 
    deleteMovieTheater = (id) =>{
-      fetch(this.api + 'theaters' + id , {
-      method: 'DELETE' ,
-      headers: {
-         'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(id),
-   })
+      fetch(this.api + '/theaters/' + id , {
+         method: 'DELETE' ,
+         headers: {
+            'Content-Type': 'application/json',
+         }
+      })
       .then(resp => resp.json())
       }
 

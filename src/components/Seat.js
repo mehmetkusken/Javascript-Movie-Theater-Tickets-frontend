@@ -2,32 +2,89 @@ class Seat{
 
     static renderSeats = () => {
         this.renderScreen()
+        document.getElementById("container").innerHTML = ''
         this.renderSeat()
-        this.renderSeat()
+     
         this.renderInfo()
         
     }
 
     static renderSeat = () => {
-        const seatContainer = document.createElement("div")
-        seatContainer.id = "row"
-        document.getElementById("container").appendChild(seatContainer)
-        seatContainer.innerHTML += `
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat "></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        `
+        let data = [
+            {
+                seatId: 1,
+                position: 1
+            },
+            {
+                seatId: 2,
+                position: 2
+            },
+            {
+                seatId: 3,
+                position: 3
+            },
+            {
+                seatId: 4,
+                position: 4
+            },
+            {
+                seatId: 5,
+                position: 5
+            },
+            {
+                seatId: 6,
+                position: 6
+            },
+            {
+                seatId: 7,
+                position: 7
+            },
+            {
+                seatId: 8,
+                position: 8
+            },
+            {
+                seatId: 9,
+                position: 9
+            },
+            {
+                seatId: 10,
+                position: 10
+            },
+            {
+                seatId: 11,
+                position: 11
+            },
+            {
+                seatId: 12,
+                position: 12,
+                is_taken: true
+            },
+        ];
+        const container = document.getElementById("container");
+
+        let dataTemplate = []
+       
+        data.forEach(element => {
+            if (parseInt(element.position) % 6 == 1) {
+                dataTemplate.push(document.createElement('div'))
+                dataTemplate[dataTemplate.length - 1].id = 'row';
+            }
+
+            dataTemplate[dataTemplate.length -1].innerHTML += `<div class="seat ${element.is_taken ? 'reserved' : ''}" data-position="${element.position}"></div>`
+        });
+        dataTemplate.forEach(element => {
+            container.appendChild(element)
+        });
     }
 
     static renderScreen = () => {
         const screenContainer = document.createElement("div")
         screenContainer.id = "screen"
-        document.getElementById("container").appendChild(screenContainer)
+        const container = document.getElementById("container");
+       
+        container.appendChild(screenContainer)
+       
     }
 
     static renderInfo = () => {

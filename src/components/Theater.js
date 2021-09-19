@@ -36,19 +36,22 @@ class Theater{
        <p id="infoo"> City: ${city} </p>
        <p id="infoo"> State: ${state} </p>
        <p id="infoo"> Phone: ${phone} </p>
-       <button id="update-bttn">Update</button>
-       <button id="delete-bttn">Delete</button>
+       <button class="update-bttn" data-theaterid=${id}>Update</button>
+       <button class="delete-bttn" data-theaterid=${id}>Delete</button>
        </div>`
     }
+    
 // Delete option
     static deleteTheater = () => {
-       const deleteBttn = document.getElementById('delete-bttn')
-       deleteBttn.addEventListener('click' , this.handleDelete)
+       const deleteBttns = document.querySelectorAll('.delete-bttn')
+        deleteBttns.forEach(function (element) {
+            element.addEventListener('click' , Theater.handleDelete)
+        })
     }
 
     static handleDelete = (e) => {
         if(e.target.innerText === 'Delete'){
-            api.deleteMovieTheater(data.id)
+            api.deleteMovieTheater(e.target.dataset.theaterid)
 
         }
     }
@@ -68,11 +71,14 @@ class Theater{
         const theaterContainer = document.createElement("div")
         theaterContainer.id = "theater-container"
         const theatherId = document.getElementById("theater")
+ 
         theatherId.innerHTML = ""
         theatherId.appendChild(theaterContainer)
         this.all.forEach(theater => theater.renderTheaterCard())
+       
         theaterContainer.addEventListener('click' , this.handleIndexClick)
         this.newTheater()
+        this.deleteTheater()
     }
 
     static newTheater = () => {
