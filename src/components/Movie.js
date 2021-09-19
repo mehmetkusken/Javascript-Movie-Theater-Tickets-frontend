@@ -2,8 +2,9 @@ class Movie{
 
     static all = []
 
-    constructor(data){
+    constructor(data , theater){
         this.data = data
+        this.theater = theater
         this.constructor.all.push(this)
     }
 

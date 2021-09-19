@@ -4,7 +4,7 @@ class Theater{
 
     constructor(data){
         this.data = data
-        this.movies = this.data.movies.map(movie => new Movie(movie))
+        this.movies = this.data.movies.map(movie => new Movie(movie, this))
         this.constructor.all.push(this)
     }
 
@@ -31,15 +31,29 @@ class Theater{
        document.getElementById("theater-container").innerHTML += `
        <div class="theater-card" data-id=${id}>
        <img src=${image} alt=${name}/>
-       <p class="title"> Theather: ${name} </p>
-       <p> Adress: ${adress} </p>
-       <p> City: ${city} </p>
-       <p"> State: ${state} </p>
-       <p> Phone: ${phone} </p>
-       
+       <p id="infoo" class="title"> Theather: ${name} </p>
+       <p id="infoo"> Adress: ${adress} </p>
+       <p id="infoo"> City: ${city} </p>
+       <p id="infoo"> State: ${state} </p>
+       <p id="infoo"> Phone: ${phone} </p>
+       <button id="update-bttn">Update</button>
+       <button id="delete-bttn">Delete</button>
        </div>`
     }
+// Delete option
+    static deleteTheater = () => {
+       const deleteBttn = document.getElementById('delete-bttn')
+       deleteBttn.addEventListener('click' , this.handleDelete)
+    }
 
+    static handleDelete = (e) => {
+        if(e.target.innerText === 'Delete'){
+            api.deleteMovieTheater(data.id)
+
+        }
+    }
+
+// Id
     static find = (id) => this.all.find(theater => theater.data.id == id)
 
     static handleIndexClick = (e) => {

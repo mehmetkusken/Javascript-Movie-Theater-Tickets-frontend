@@ -29,6 +29,17 @@ class ApiService {
     .then(response => response.json())
    }
 
+   deleteMovieTheater = (id) =>{
+      fetch(this.api + 'theaters' + id , {
+      method: 'DELETE' ,
+      headers: {
+         'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(id),
+   })
+      .then(resp => resp.json())
+      }
+
 
     
 

@@ -1,27 +1,13 @@
 class Seat{
 
-    
-
     static renderSeats = () => {
         this.renderScreen()
-        this.renderSeat()
-        this.renderSeat()
-        this.renderSeat()
-        this.renderSeat()
-        this.renderSeat()
-        this.renderSeat()
-        this.renderSeat()
-        this.renderSeat()
-        this.renderSeat()
-        this.renderSeat()
-        this.renderSeat()
         this.renderSeat()
         this.renderSeat()
         this.renderInfo()
         
     }
 
-    
     static renderSeat = () => {
         const seatContainer = document.createElement("div")
         seatContainer.id = "row"
@@ -31,24 +17,11 @@ class Seat{
         <div class="seat"></div>
         <div class="seat"></div>
         <div class="seat "></div>
-        <div class="seat "></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
-        <div class="seat"></div>
         <div class="seat"></div>
         <div class="seat"></div>
         <div class="seat"></div>
         <div class="seat"></div>
         `
-       
     }
 
     static renderScreen = () => {
