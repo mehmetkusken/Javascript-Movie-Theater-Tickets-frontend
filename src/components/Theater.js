@@ -11,14 +11,14 @@ class Theater{
     renderShow = () => {
         const { id, name, adress, city, state, phone, image } = this.data
         document.getElementById("theater").innerHTML =`
-        <div class="theater-card">
+        <div class="theater-card col-md-20 border p-2">
         <img src=${image} alt=${name}/>
-        <p class="title"> Theather: ${name} </p>
-        <p> Adress: ${adress} </p>
-        <p> City: ${city} </p>
-        <p"> State: ${state} </p>
-        <p> Phone: ${phone} </p>
-        <div class="contain"></div>
+        <p class="title"><h5 class="thead rounder"> Theather:</h5> ${name} </p>
+        <p><h5 class="thead rounder"> Adress:</h5> ${adress} </p>
+        <p><h5 class="thead rounder"> City:</h5> ${city} </p>
+        <p><h5 class="thead rounder"> State:</h5> ${state} </p>
+        <p><h5 class="thead rounder"> Phone:</h5> ${phone} </p>
+        <div class="contain col-md-20 border p-2"></div>
         <button id="go-back">Go Back</button>
         `
         document.getElementById('go-back').addEventListener('click',Theater.renderTheaterIndex)
@@ -29,15 +29,15 @@ class Theater{
     renderTheaterCard = () => {
         const { id, name, adress, city, state, phone, image } = this.data
        document.getElementById("theater-container").innerHTML += `
-       <div class="theater-card" data-id=${id}>
-       <img src=${image} alt=${name}/>
-       <p id="infoo" class="title"> Theather: ${name} </p>
-       <p id="infoo"> Adress: ${adress} </p>
-       <p id="infoo"> City: ${city} </p>
-       <p id="infoo"> State: ${state} </p>
-       <p id="infoo"> Phone: ${phone} </p>
-       <button class="update-bttn" data-theaterid=${id}>Update</button>
-       <button class="delete-bttn" data-theaterid=${id}>Delete</button>
+       <div class="theater-card col-md-3 border p-2" data-id=${id}>
+       <img src=${image} alt=${name} class="img-fluid rounded mb-3" />
+       <p  class="title> <h5 class="thead rounder">Theather:</h5> ${name} </p>
+       <p> <h5 class="thead rounder">Adress:</h5> ${adress} </p>
+       <p> <h5 class="thead rounder">City: </h5>${city} </p>
+       <p> <h5 class="thead rounder">State: </h5>${state} </p>
+       <p> <h5 class="thead rounder">Phone: </h5>${phone} </p>
+       <button class="update-bttn btn btn-sm btn-primary" data-theaterid=${id}>Update</button>
+       <button class="delete-bttn btn btn-sm btn-primary" data-theaterid=${id}>Delete</button>
        </div>`
     }
     
@@ -70,6 +70,7 @@ class Theater{
 
         const theaterContainer = document.createElement("div")
         theaterContainer.id = "theater-container"
+        theaterContainer.classList = "row mt-3"
         const theatherId = document.getElementById("theater")
  
         theatherId.innerHTML = ""
