@@ -5,7 +5,8 @@ class ApiService {
     }
 
     getTheaters = () => fetch(this.api + "/theaters").then(resp => resp.json())
-    getTheaterSeats = (theaterId) => fetch(this.api + "/theaters/" + theaterId + "/seats").then(resp => resp.json());
+    
+   
     findOrCreateUsername = (username) => {
       return fetch(this.api + '/users',{
          method: 'POST' , 
