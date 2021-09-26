@@ -130,7 +130,7 @@ class Theater{
     }
 
     
-// Delete option
+
     static deleteTheater = () => {
        const deleteBttns = document.querySelectorAll('.delete-bttn')
         deleteBttns.forEach(function (element) {
@@ -141,7 +141,7 @@ class Theater{
     static handleDelete = (e) => {
         if(e.target.innerText === 'Delete'){
             api.deleteMovieTheater(e.target.dataset.theaterid)
-
+        
         }
     }  
 }

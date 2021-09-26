@@ -38,10 +38,9 @@ class ApiService {
          }
       })
       .then(resp => resp.json())
+      .then(json => alert(json.message))
+      .then(json => Theater.getTheaters())
       }
-
-
-
-    
+      
 
  }
