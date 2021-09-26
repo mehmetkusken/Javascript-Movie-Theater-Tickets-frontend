@@ -28,7 +28,6 @@ class Navigation{
         case 'theaters':
           Theater.getTheaters();
           document.getElementById("theater").classList.remove('hidden');
-          // document.getElementById("container").classList.add('hidden');
           heroImage.classList.add('hidden');
           break;
         case 'homepage':

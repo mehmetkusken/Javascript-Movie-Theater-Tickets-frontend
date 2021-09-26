@@ -3,25 +3,19 @@ const modal = new Modal()
 let user
 
 Navigation.renderNav()
- 
-// Movie.backGraund();
+
 document.querySelector('form').addEventListener('submit',usernameSubmit)
 
 function usernameSubmit(e){
     e.preventDefault()
-   
-   let username = e.target.username.value;
-   if (username != undefined && username != null && username != '') {
+
+    let username = e.target.username.value
      api.findOrCreateUsername(username).then(userData =>{
         user = userData
-        let heroImage = document.querySelector('.hero-image');
-        heroImage.classList.remove('hidden');
-    })
-    document.getElementById('theater').innerHTML = ''
-   } else {
-     alert('Username can not be empty!')
-   }
-   
+        let heroImage = document.querySelector('.hero-image')
+        heroImage.classList.remove('hidden')
+         document.getElementById('theater').innerHTML = ''
+      })
 }
 
 

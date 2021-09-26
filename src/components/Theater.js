@@ -8,7 +8,7 @@ class Theater{
         this.constructor.all.push(this)
     }
 
-    // Id
+   
     static find = (id) => this.all.find(theater => theater.data.id == id)
 
     renderShow = () => {
@@ -26,10 +26,6 @@ class Theater{
         `
         document.getElementById('go-back').addEventListener('click',Theater.renderTheaterIndex)
         this.movies.forEach(movie => movie.renderCard())
-        Movie.deleteMovie();
-        Movie.addNewMovie(id);
-     
-       
        
     }
 
@@ -95,6 +91,7 @@ class Theater{
     static theaterForm = () => {
         modal.main.innerHTML = `
         <form>
+        <h1>Add New Theater</h1>
         <label for="name">Name:</label><br>
         <input type="text" name="name" ><br></br>
         <label for="adress">Adress:</label><br>

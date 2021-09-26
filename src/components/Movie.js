@@ -22,45 +22,9 @@ class Movie{
        <p class=""><h5 class="thead rounder">Year: </h5>${releaseDate}</p>
        <p class=""><h5 class="thead rounder">Detail:</h5> ${movieDetail}</p>
        </div>`
-
-       
-        
     }
 
-    // static deleteMovie = () => {
-
-     //    const getMovieCards = document.querySelectorAll('.movie-card')
-     //    getMovieCards.forEach((element) => {
-     //        const button = document.createElement("button")
-      //       button.innerText ='Delete Movie' 
-     //        button.addEventListener('click', modal.open)
-     //        element.appendChild(button)
-      //   });
-     //    
-    // }
-
-
-    // static addNewMovie = (id) => {
-
-     //    const button = document.createElement("button")
-     //    button.innerText ='Add new Movie' 
-     //    const getMovieCard = document.querySelector('.theater-card[data-id="'+ id +'"]')
-      //   console.log(getMovieCard);
-      //   getMovieCard.appendChild(button)
-       //  button.addEventListener('click', modal.open)
-    // }
-
-    // static backGraund = () => {
-     //    const backGraundButton = document.createElement('button')
-     //    backGraundButton.innerText = 'Change Color'
-     //    const getBackGraund = document.querySelector('body')
-     //    getBackGraund.appendChild(backGraundButton)
-      //   backGraundButton.addEventListener('click', function(){
-      //       let firstone = document.querySelector('.firstone');
-      //       firstone.classList.toggle('black'); 
-            
-      //   })
-    // }
+}
     
     
 
@@ -72,6 +36,5 @@ class Movie{
 
     
     
-}
 
 
