@@ -16,7 +16,7 @@ class Theater{
         document.getElementById("theater").innerHTML =`
         <div class="theater-card col-md-20 border p-2" data-id="${id}">
         <img src=${image} alt=${name}/>
-        <p class="title"><h5 class="thead rounder"> Theather:</h5> ${name} </p>
+        <p  class="title> <h5 class="thead rounder">Theather:</h5> ${name} </p>
         <p><h5 class="thead rounder"> Adress:</h5> ${adress} </p>
         <p><h5 class="thead rounder"> City:</h5> ${city} </p>
         <p><h5 class="thead rounder"> State:</h5> ${state} </p>
@@ -26,7 +26,7 @@ class Theater{
         `
         document.getElementById('go-back').addEventListener('click',Theater.renderTheaterIndex)
         this.movies.forEach(movie => movie.renderCard())
-       
+        
     }
 
     renderTheaterCard = () => {
@@ -41,12 +41,10 @@ class Theater{
        <p> <h5 class="thead rounder">Phone: </h5>${phone} </p>
        <button class="delete-bttn btn btn-sm btn-primary" data-theaterid=${id}>Delete</button>
        </div>`
-
-        
+       
     }
 
     static getTheaters = () => {
-    
         api.getTheaters().then(theaters => {
         Theater.all = []
         theaters.forEach(theater => new Theater(theater))
@@ -63,13 +61,12 @@ class Theater{
  
         theatherId.innerHTML = ""
         theatherId.appendChild(theaterContainer)
-        this.all.forEach(theater => theater.renderTheaterCard())
+        this.all.sort((theater1, theater2) => (theater1.data.name > theater2.data.name) ? 1 : -1).forEach(theater => theater.renderTheaterCard())
+        
        
         theaterContainer.addEventListener('click' , this.handleIndexClick)
         this.newTheater()
         this.deleteTheater()
-       
-       
     }
 
     static handleIndexClick = (e) => {
@@ -106,7 +103,6 @@ class Theater{
         <input type="text" name="image" ><br></br>
         <input type="submit" value="Submit">
         </form>
-
         `
         modal.main.querySelector('form').addEventListener('submit', this.handleSubmit)
         modal.open()
@@ -129,8 +125,6 @@ class Theater{
        e.target.reset()
     }
 
-    
-
     static deleteTheater = () => {
        const deleteBttns = document.querySelectorAll('.delete-bttn')
         deleteBttns.forEach(function (element) {
@@ -141,7 +135,7 @@ class Theater{
     static handleDelete = (e) => {
         if(e.target.innerText === 'Delete'){
             api.deleteMovieTheater(e.target.dataset.theaterid)
-        
         }
     }  
+
 }

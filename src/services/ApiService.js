@@ -41,6 +41,4 @@ class ApiService {
       .then(json => alert(json.message))
       .then(json => Theater.getTheaters())
       }
-      
-
  }

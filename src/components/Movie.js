@@ -8,7 +8,6 @@ class Movie{
         this.constructor.all.push(this)
     }
 
-    
     renderCard = () => {
         const { id, movieName, releaseDate, movieDetail, movieImage, stars, director, genres, runtime } = this.data
        document.querySelector(".contain").innerHTML += `
@@ -22,8 +21,8 @@ class Movie{
        <p class=""><h5 class="thead rounder">Year: </h5>${releaseDate}</p>
        <p class=""><h5 class="thead rounder">Detail:</h5> ${movieDetail}</p>
        </div>`
+       
     }
-
 }
     
     
