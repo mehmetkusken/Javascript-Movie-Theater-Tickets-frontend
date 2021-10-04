@@ -25,7 +25,8 @@ class Theater{
         <button class="btn btn-info" id="go-back">Go Back</button>
         `
         document.getElementById('go-back').addEventListener('click',Theater.renderTheaterIndex)
-        this.movies.forEach(movie => movie.renderCard())
+        this.movies.sort((movie1, movie2) => (movie1.data.movieName > movie2.data.movieName) ? 1 : -1).forEach(movie => movie.renderCard())
+
         
     }
 
@@ -62,7 +63,7 @@ class Theater{
         theatherId.innerHTML = ""
         theatherId.appendChild(theaterContainer)
         this.all.sort((theater1, theater2) => (theater1.data.name > theater2.data.name) ? 1 : -1).forEach(theater => theater.renderTheaterCard())
-        
+       
        
         theaterContainer.addEventListener('click' , this.handleIndexClick)
         this.newTheater()
